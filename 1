@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+class Base {
+public:
+    int size;
+    int *arr;
+};
+
+class Proz : public Base {
+public:
+    Proz();
+    void Input();
+};
+
+Proz::Proz(){
+    cin >> this->size;
+    this->arr = new int[size];
+}
+
+void Proz::Input() {
+	cout << "Enter meanings \n";
+	for (int i = 0; i < size; i++) {
+		int elem;
+		cin >> elem;
+		arr[i] = elem;
+	}
+	for (int i = 0; i < size; i++) {
+		cout << i << " " << arr[i] << endl;
+	}
+}
+
+class Third : public Base, public Proz {
+public:
+	void Check();
+};
+
+void Third::Check() {
+	Proz::Input();
+}
+
+int main()
+{
+	Proz obj();
+	Third m;
+	m.Input();
+}
+
+
+
